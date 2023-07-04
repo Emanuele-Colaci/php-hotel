@@ -23,6 +23,12 @@
                         Mostra solo hotel con parcheggio
                     </label>
                 </div>
+                <div class="mb-3">
+                    <label>
+                        Voto minimo
+                    </label>
+                    <input type="number" class="form-control" name="min_vote" placeholder="Inserisci il voto minimo">
+                </div>
                 <input type="submit" class="btn btn-primary mt-3 mb-3" value="Filtra">
             </form>
 
