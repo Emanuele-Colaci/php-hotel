@@ -15,6 +15,19 @@
     </head>
     <body>
         <div class="container">
+            <h1>Filtra Hotel</h1>
+            <form action="" method="GET">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="parking" value="1">
+                    <label>
+                        Mostra solo hotel con parcheggio
+                    </label>
+                </div>
+                <input type="submit" class="btn btn-primary mt-3 mb-3" value="Filtra">
+            </form>
+
+            <hr>
+
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -26,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($hotels as $hotel){ ?>
+                    <?php foreach($filteredHotels as $hotel){ ?>
                         <tr>
                             <td><?php echo $hotel['name']; ?></td>
                             <td><?php echo $hotel['description']; ?></td>

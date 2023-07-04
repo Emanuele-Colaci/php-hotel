@@ -38,4 +38,16 @@
         ],
     ];
 
+    // FILTRA GLI HOTEL IN BASE ALLA RICHIESTA GET
+    $filteredHotels = [];
+    if(isset($_GET['parking']) && $_GET['parking'] === '1'){
+        foreach($hotels as $hotel){
+            if($hotel['parking']){
+                $filteredHotels[] = $hotel;
+            }
+        }
+    }else{
+        $filteredHotels = $hotels;
+    }
+
 ?>
