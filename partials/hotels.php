@@ -38,25 +38,4 @@
         ],
     ];
 
-    // FILTRA GLI HOTEL IN BASE ALLA RICHIESTA GET
-    $filteredHotels = [];
-    $minVote = isset($_GET['min_vote']) ? $_GET['min_vote'] : null;
-
-    foreach($hotels as $hotel){
-        $addHotel = true;
-
-        if(isset($_GET['parking']) && $_GET['parking'] === '1'){
-            if(!$hotel['parking']){
-                $addHotel = false;
-            }
-        }
-
-        if($minVote !== null && $hotel['vote'] < $minVote){
-            $addHotel = false;
-        }
-
-        if($addHotel){
-            $filteredHotels[] = $hotel;
-        }
-    }
 ?>

@@ -2,6 +2,28 @@
 
     include __DIR__. '../partials/hotels.php';
 
+    // FILTRA GLI HOTEL IN BASE ALLA RICHIESTA GET
+    $filteredHotels = [];
+    $minVote = isset($_GET['min_vote']) ? $_GET['min_vote'] : null;
+
+    foreach($hotels as $hotel){
+        $addHotel = true;
+
+        if(isset($_GET['parking']) && $_GET['parking'] === '1'){
+            if(!$hotel['parking']){
+                $addHotel = false;
+            }
+        }
+
+        if($minVote !== null && $hotel['vote'] < $minVote){
+            $addHotel = false;
+        }
+
+        if($addHotel){
+            $filteredHotels[] = $hotel;
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +49,7 @@
                     <label>
                         Voto minimo
                     </label>
-                    <input type="number" class="form-control" name="min_vote" placeholder="Inserisci il voto minimo">
+                    <input type="number" min="0" max="5" class="form-control" name="min_vote" placeholder="Inserisci il voto minimo">
                 </div>
                 <input type="submit" class="btn btn-primary mt-3 mb-3" value="Filtra">
             </form>
