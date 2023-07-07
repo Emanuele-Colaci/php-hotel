@@ -1,6 +1,6 @@
 <?php
 
-    include __DIR__. '../partials/hotels.php';
+    include './partials/hotels.php';
 
     // FILTRA GLI HOTEL IN BASE ALLA RICHIESTA GET
     $filteredHotels = [];
